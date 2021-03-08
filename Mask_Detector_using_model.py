@@ -58,12 +58,7 @@ def compute(fm):
 app = Flask(__name__)
 
 
-@app.route('/')
-def hello_world():
-    return render_template('index.html')
-
-
-@app.route('/process-image', methods=['POST'])
+@app.route('/', methods=['POST'])
 def upload_image():
     img = Image.open(request.files['file'])
     img = np.array(img)
@@ -73,4 +68,4 @@ def upload_image():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',debug=True)
+    app.run(host='0.0.0.0', debug=True)
